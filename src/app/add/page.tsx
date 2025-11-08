@@ -5,15 +5,10 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import handleAddBook from "@/app/add/handleAddBook";
 import { redirect } from "next/navigation";
+import { bookData } from "@/types/bookData";
 
 export default function AddBookPage() {
-  const { register, handleSubmit } = useForm({
-    defaultValues: {
-      bookTitle: "",
-      bookAuthor: "",
-    },
-  });
-
+  const { register, handleSubmit } = useForm<bookData>();
   return (
     <form
       onSubmit={handleSubmit((data) => {
