@@ -4,7 +4,7 @@ import {
   NavigationMenu,
   NavigationMenuItem,
   NavigationMenuLink,
-  NavigationMenuList
+  NavigationMenuList,
 } from "@/components/ui/navigation-menu";
 import Link from "next/link";
 
@@ -25,7 +25,17 @@ export default function RootLayout({
             </NavigationMenuItem>
             <NavigationMenuItem>
               <NavigationMenuLink asChild>
-                <Link href={"/"}>Currently Reading</Link>
+                <Link href={"/lists/currently-reading"}>Currently Reading</Link>
+              </NavigationMenuLink>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <NavigationMenuLink asChild>
+                <Link href={"/lists/want-to-read"}>Want To Read</Link>
+              </NavigationMenuLink>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <NavigationMenuLink asChild>
+                <Link href={"/lists/completed"}>Completed</Link>
               </NavigationMenuLink>
             </NavigationMenuItem>
           </NavigationMenuList>

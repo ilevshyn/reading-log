@@ -1,18 +1,10 @@
-"use client";
-import { useEffect, useState } from "react";
+"use server";
 import getBooks from "@/app/getBooks";
 import { Item, ItemContent, ItemGroup, ItemTitle } from "@/components/ui/item";
-import { bookDataDb, bookDataDbArray } from "@/types/bookDataDb";
+import { bookDataDb } from "@/types/bookDataDb";
 
-export default function Home() {
-  const [books, setBooks] = useState<bookDataDbArray>([]);
-  useEffect(() => {
-    async function fetchBooks() {
-      const res = await getBooks();
-      setBooks(res);
-    }
-    fetchBooks();
-  }, []);
+export default async function Home() {
+  const books = await getBooks("currently-reading");
   return (
     <div>
       <ItemGroup className={"flex flex-row justify-evenly"}>
