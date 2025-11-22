@@ -13,21 +13,26 @@ export default async function Page({
 
   return (
     <ItemGroup className={"flex flex-row justify-evenly"}>
-      {books.map((book: bookDataDb) => (
-        <Item key={book._id} variant={"outline"}>
-          <ItemContent>
-            <ItemTitle>{book.bookTitle}</ItemTitle>
+      {books.length === 0 ? (
+        <Item>No Books Found!</Item>
+      ) : (
+        books.map((book: bookDataDb) => (
+          <Item key={book._id} variant={"outline"}>
             <ItemContent>
-              Author: {book.bookAuthor}, Pages: {book.amountOfPages}, Currently
-              Read Pages: {book.currentlyReadPages}, Reading Progress:{" "}
-              {book.amountOfPages == 0
-                ? Math.trunc(book.currentlyReadPages / book.amountOfPages)
-                : 0}
-              %
+              <ItemTitle>{book.bookTitle}</ItemTitle>
+              <ItemContent>
+                Author: {book.bookAuthor}, Pages: {book.amountOfPages},
+                Currently Read Pages: {book.currentlyReadPages}, Reading
+                Progress:{" "}
+                {book.amountOfPages == 0
+                  ? Math.trunc(book.currentlyReadPages / book.amountOfPages)
+                  : 0}
+                %
+              </ItemContent>
             </ItemContent>
-          </ItemContent>
-        </Item>
-      ))}
+          </Item>
+        ))
+      )}
     </ItemGroup>
   );
 }

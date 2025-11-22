@@ -5,3 +5,9 @@ export type bookData = {
   amountOfPages: number;
   currentlyReadPages: number;
 };
+
+export type bookDataFromApi = {
+  author_name: string;
+  key: string;
+  title: string;
+};
